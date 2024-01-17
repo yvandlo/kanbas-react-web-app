@@ -1,0 +1,222 @@
+<table>
+    <tbody>
+        <tr>
+            <td valign="top">
+                <ul>
+                    <li><a href="/Kanbas/Account/index.html">Account</a></li>
+                    <li><a href="/Kanbas/Dashboard/index.html">Dashboard</a></li>
+                    <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
+                    <li><a href="/Kanbas/Calendar/index.html">Calendar</a></li>
+                    <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
+                    <li><a href="/Kanbas/History/index.html">History</a></li>
+                    <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
+                    <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
+                    <li><a href="/Kanbas/Help/index.html">Help</a></li>
+                </ul>
+            </td>
+            <td valign="top">
+                <ul>
+                    <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                    <li><a href="/Kanbas/Dashboard/index.html">Modules</a></li>
+                    <li><a href="/Kanbas/Courses/Home/screen.html">Piazza</a></li>
+                    <li><a href="/Kanbas/Calendar/index.html">Zoom Meetings</a></li>
+                    <li><a href="/Kanbas/Inbox/index.html">Assignments</a></li>
+                    <li><a href="/Kanbas/History/index.html">Quizzes</a></li>
+                    <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                    <li><a href="/Kanbas/Commons/index.html">People</a></li>
+                    <li><a href="/Kanbas/Inbox/index.html">Panopto Video</a></li>
+                    <li><a href="/Kanbas/History/index.html">Discussions</a></li>
+                    <li><a href="/Kanbas/Studio/index.html">Announcements</a></li>
+                    <li><a href="/Kanbas/Commons/index.html">Pages</a></li>
+                    <li><a href="/Kanbas/Inbox/index.html">Files</a></li>
+                    <li><a href="/Kanbas/History/index.html">Rubrics</a></li>
+                    <li><a href="/Kanbas/Studio/index.html">Outcomes</a></li>
+                    <li><a href="/Kanbas/Commons/index.html">Collaborations</a></li>
+                    <li><a href="/Kanbas/History/index.html">Syllabus</a></li>
+                    <li><a href="/Kanbas/Studio/index.html">Settings</a></li>
+                </ul>
+            </td>
+            <td valign="top">
+                <select id="select-one-gradebook">
+                    <option value="GRADEBOOK">Gradebook</option>
+                </select>
+                <button type="button">Import</button>
+                <select id="select-one-export">
+                    <option value="EXPORT">Export</option>
+                </select>
+                <button type="button">Configure</button>
+                <h2>Student names</h2>
+                <input type="text" placeholder="Search Students" id="search-students-field" /><br />
+                <h2>Assignment names</h2>
+                <p>
+                    <input type="text" placeholder="Search Assignments" id="search-assignments-field" /><br />
+                </p>
+                <p>
+                    <button type="button">Apply Filters</button>
+                </p>
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>A1 SETUP <br> Out of 100</th>
+                            <th>A2 HTML <br> Out of 100</th>
+                            <th>A3 CSS <br> Out of 100</th>
+                            <th>A4 BOOTSTRAP <br> Out of 100</th>
+                            <th>A5 JAVASCRIPT <br> Out of 100</th>
+                            <th>A6 REACT <br> Out of 100</th>
+                            <th>A7 REDUX <br> Out of 100</th>
+                            <th>A8 NODE <br> Out of 100</th>
+                            <th>A9 MONGO <br> Out of 100</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alice Wonderland</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Princess Leia</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Luke Skywalker</td>
+                            <td align="center"><input align="midle" type="number" id="a1_luke" value="91" /></td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Han Solo</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center"><input type="number" id="a8_han" value="94" /></td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Lando Calresian</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Boba Fett</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Darth Vader</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Obi-Wan Kenobi</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>R2-D2</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>C-3PO</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Yoda</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                        <tr>
+                            <td>Admiral Ackbar</td>
+                            <td align="center">98</td>
+                            <td align="center">89</td>
+                            <td align="center">87</td>
+                            <td align="center">90</td>
+                            <td align="center">89</td>
+                            <td align="center">94</td>
+                            <td align="center">88</td>
+                            <td align="center">87</td>
+                            <td align="center">100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
