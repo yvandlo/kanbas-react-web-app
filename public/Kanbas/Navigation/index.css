@@ -41,3 +41,17 @@
 .wd-kanbas-account-gray a i {
     color: gray;
 }
+
+.wd-kanbas-navigation-topbar {
+    background-color: white;
+    list-style: none;
+}
+
+.wd-kanbas-navigation-topbar li {
+    color: red;
+}
+
+.wd-kanbas-navigation-topbar a {
+    color: red;
+    text-decoration: none;
+}
