@@ -7,10 +7,67 @@
     <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
     <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
     <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
     <!-- Implement links to Kanbas and Course Navigation -->
+    <div class="d-block d-md-none">
+        <nav class="navbar bg-light border-bottom border-body" data-bs-theme="light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 wd-kanbas-navigation-topbar">
+                        <span class="wd-kanbas-account-gray">
+                            <li><a href="/Kanbas/Account/Profile/screen.html">
+                                    <i class="fa fa-user"></i>
+                                    Account</a></li>
+                        </span>
+                        <li class="wd-active">
+                            <a href="/Kanbas/Dashboard/screen.html">
+                                <i class="fa fa-tachometer"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Courses
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/Kanbas/Courses/Home/screen.html">Home</a>
+                                </li>
+                                <li class="wd-active">
+                                    <a href="/Kanbas/Courses/Modules/screen.html">Modules</a>
+                                </li>
+                                <li><a href="http://piazza.com">Piazza</a></li>
+                                <li><a href="#">Zoom</a></li>
+                                <li>
+                                    <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+                                </li>
+                                <li><a href="#">Quizzes</a></li>
+                                <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                                <li><a href="#">People</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Quizzes</a></li>
+                        <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+                        <li><a href="#"><i class="fa fa-inbox"></i>Inbox</a></li>
+                        <li><a href="#"><i class="fa fa-history"></i>History</a></li>
+                        <li><a href="#"><i class="fa fa-tv"></i>Studio</a></li>
+                        <li><a href="#"><i class="fa fa-creative-commons"></i>Commons</a></li>
+                        <li><a href="#"><i class="fa fa-question"></i>Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="d-flex">
         <div class="d-none d-md-block">
             <ul class="wd-kanbas-navigation">
