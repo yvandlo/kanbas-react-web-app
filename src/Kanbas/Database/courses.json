@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "CS1234",
+    "name": "Full Stack software developer",
+    "number": "CS1234 React JS",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/reactjs.webp"
+  },
+  {
+    "_id": "DN404",
+    "name": "Studies of Katanga",
+    "number": "DN404",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/interpretive_dance.jpg"
+  },
+  {
+    "_id": "MN1234",
+    "name": "Mountian Climbing",
+    "number": "MN1234  Learn 2 Climb",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/mountainClimbing.jpg"
+  },
+  {
+    "_id": "CSGO2",
+    "name": "It's Just a Box",
+    "number": "CSGO2",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/just_a_box.jpg"
+  },
+  {
+    "_id": "SH",
+    "name": "Sunshine Pop",
+    "number": "SH The Millenium",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "./images/sunshine.jpg"
+  },
+  {
+    "_id": "WN",
+    "name": "Super Awesome",
+    "number": "WN The Pod",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/super_awesome_class.jpg"
+  },
+  {
+    "_id": "BL1234",
+    "name": "Starting Point",
+    "number": "BL1234 Blank",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "image": "/images/blank.jpg"
+  }
+]
