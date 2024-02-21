@@ -1,4 +1,6 @@
 import ModuleList from "./List";
+import "bootstrap";
+
 function Modules() {
     return (
         <div>

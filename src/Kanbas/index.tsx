@@ -1,7 +1,7 @@
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
 import Dashboard from "./Dashboard";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 
 function Kanbas() {
    return (
@@ -11,6 +11,7 @@ function Kanbas() {
          </div>
          <div style={{ flexGrow: 1 }}>
             <Routes>
+               <Route path="/" element={<Navigate to="Dashboard" />} />
                <Route path="/Account" element={<h1>Account</h1>} />
                <Route path="/Dashboard" element={<Dashboard />} />
                <Route path="/Courses/:courseId/*" element={<Courses />} />
