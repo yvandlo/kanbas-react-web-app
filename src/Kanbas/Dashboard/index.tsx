@@ -43,9 +43,6 @@ function Dashboard() {
           ))}
         </div>
       </div>
-      <pre>
-        <code>{JSON.stringify(courses, null, 2)}</code>!
-      </pre>
     </div>
   );
 }
