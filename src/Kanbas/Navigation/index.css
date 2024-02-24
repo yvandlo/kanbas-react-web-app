@@ -28,17 +28,17 @@
     text-decoration: none;
 }
 
-.wd-kanbas-navigation a i {
+.wd-kanbas-navigation a svg {
     color: red;
     font-size: 2em;
     margin-bottom: 5px;
 }
 
-.wd-kanbas-account a i {
+.wd-kanbas-account a svg {
     color: white;
 }
 
-.wd-kanbas-account-gray a i {
+.wd-kanbas-account-gray a svg {
     color: gray;
 }
 
