@@ -11,8 +11,9 @@ function KanbasNavigation() {
     const { pathname } = useLocation();
     return (
         <ul className="wd-kanbas-navigation">
+            <li><a href="http://northeastern.edu"><img src="/images/NUlogo.png" height="50px" /><br /></a></li>
             {links.map((link, index) => (
-                <li key={index} className={pathname.includes(link.label) ? "wd-active" : ""}>
+                <li key={index} className={pathname.includes(link.label) ? "wd-active" : link.label === "Account" ? "wd-kanbas-account" : ""}>
                     <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} </Link>
                 </li>
             ))}
