@@ -18,10 +18,11 @@ function sayHello() {
 
 
 const Assignment4 = () => {
-  return(
+  return (
     <>
       <h1>Assignment 4</h1>
-      <ReduxExamples/>
+      <ReduxExamples />
+      <hr />
       <ParentStateComponent />
       <ArrayStateVariable />
       <ObjectStateVariable />
