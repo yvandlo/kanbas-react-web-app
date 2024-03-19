@@ -1,4 +1,3 @@
-import { courses } from "../Database/";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
@@ -9,7 +8,7 @@ import { links } from "../Database"
 import { FaGreaterThan } from "react-icons/fa";
 
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
   const { courseId, section } = useParams();
   const { pathname } = useLocation();
   const course = courses.find((course) => course._id === courseId);
