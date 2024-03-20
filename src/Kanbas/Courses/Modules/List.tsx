@@ -3,10 +3,24 @@ import "./index.css";
 import { modules } from "../../Database/";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import {
+    addModule,
+    deleteModule,
+    updateModule,
+    setModule,
+} from "./moduleReducer";
+import { KanbasState } from "../../store";
+
 function ModuleList() {
     const { courseId } = useParams();
-    const modulesList = modules.filter((module) => module.course === courseId);
-    const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+    const moduleList = useSelector((state: KanbasState) =>
+        state.modulesReducer.modules);
+    const module = useSelector((state: KanbasState) =>
+        state.modulesReducer.module);
+    const dispatch = useDispatch();
+
+
     return (
         <>
             {<div className="row justify-content-md-end">
@@ -26,21 +40,48 @@ function ModuleList() {
                     <button type="button" className="btn bg-danger">Module</button>
                 </div>
             </div>}
+
+            <div className="card">
+                <div className="card-body">
+                    <button type="button" className="btn bg-danger"
+                        onClick={() => dispatch(addModule({ ...module, course: courseId }))}> Add</button>
+                    <button type="button" className="btn bg-danger"
+                        onClick={() => dispatch(updateModule(module))}>
+                        Update
+                    </button>
+                    <br />
+                    <input className="form-control" value={module.name}
+                        onChange={(e) => dispatch(setModule({
+                            ...module, name: e.target.value
+                        }))}
+                    />
+                    <textarea className="form-control" value={module.description}
+                        onChange={(e) => dispatch(setModule({
+                            ...module, description: e.target.value
+                        }))}
+                    />
+                </div>
+            </div >
+
             <ul className="list-group wd-modules">
-                {modulesList.map((module) => (
+                {moduleList.filter((module) => module.course === courseId).map((module) => (
                     <li
-                        className="list-group-item"
-                        onClick={() => setSelectedModule(module)}>
+                        className="list-group-item">
                         <div>
                             <FaEllipsisV className="me-2" />
                             {module.name}
                             <span className="float-end">
+                                <button type="button" className="btn bg-danger" onClick={() => dispatch(deleteModule(module._id))}>Delete</button>
+                                <button type="button" className="btn bg-success" onClick={() => dispatch(setModule(module))}>Edit</button>
                                 <FaCheckCircle className="text-success" />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
                             </span>
+                            <br />
+                            {module.description}
                         </div>
-                        {selectedModule._id === module._id && (
+
+                        {(
                             <ul className="list-group">
                                 {module.lessons?.map((lesson) => (
                                     <li className="list-group-item">
@@ -50,6 +91,8 @@ function ModuleList() {
                                             <FaCheckCircle className="text-success" />
                                             <FaEllipsisV className="ms-2" />
                                         </span>
+                                        <br />
+                                        {lesson.description}
                                     </li>
                                 ))}
                             </ul>
