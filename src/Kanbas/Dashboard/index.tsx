@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as db from "../Database";
+//import * as db from "../Database";
 import Courses from "./../Courses";
 import { Routes, Route } from "react-router";
 
@@ -34,7 +34,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
 
 
       <hr />
-      <h2>Published Courses (7)</h2>
+      <h2>Published Courses {courses.length}</h2>
       <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
