@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
@@ -8,10 +10,20 @@ import { links } from "../Database"
 import { FaGreaterThan } from "react-icons/fa";
 
 
-function Courses({ courses }: { courses: any[]; }) {
+function Courses() {
   const { courseId, section } = useParams();
   const { pathname } = useLocation();
-  const course = courses.find((course) => course._id === courseId);
+  const COURSES_API = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(
+      `${COURSES_API}/${courseId}`
+    );
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
   return (
     <div>
       <h2 ><HiMiniBars3 /> Course {course?.name} <FaGreaterThan className="fs-5" />
