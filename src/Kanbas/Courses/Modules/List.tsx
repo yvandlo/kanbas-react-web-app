@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { modules } from "../../Database/";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
@@ -9,11 +9,36 @@ import {
     deleteModule,
     updateModule,
     setModule,
+    setModules
 } from "./moduleReducer";
 import { KanbasState } from "../../store";
+import * as client from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
+    useEffect(() => {
+        client.findModulesForCourse(courseId)
+            .then((modules) =>
+                dispatch(setModules(modules))
+            );
+    }, [courseId]);
+
+    const handleDeleteModule = (moduleId: string) => {
+        client.deleteModule(moduleId).then((status) => {
+            dispatch(deleteModule(moduleId));
+        });
+    };
+    const handleUpdateModule = async () => {
+        const status = await client.updateModule(module);
+        dispatch(updateModule(module));
+    };
+    const handleAddModule = () => {
+        client.createModule(courseId, module).then((module) => {
+            dispatch(addModule(module));
+        });
+    };
+
+
     const moduleList = useSelector((state: KanbasState) =>
         state.modulesReducer.modules);
     const module = useSelector((state: KanbasState) =>
@@ -44,9 +69,9 @@ function ModuleList() {
             <div className="card">
                 <div className="card-body">
                     <button type="button" className="btn bg-danger"
-                        onClick={() => dispatch(addModule({ ...module, course: courseId }))}> Add</button>
+                        onClick={() => handleAddModule()}> Add</button>
                     <button type="button" className="btn bg-danger"
-                        onClick={() => dispatch(updateModule(module))}>
+                        onClick={() => handleUpdateModule()}>
                         Update
                     </button>
                     <br />
@@ -71,7 +96,7 @@ function ModuleList() {
                             <FaEllipsisV className="me-2" />
                             {module.name}
                             <span className="float-end">
-                                <button type="button" className="btn bg-danger" onClick={() => dispatch(deleteModule(module._id))}>Delete</button>
+                                <button type="button" className="btn bg-danger" onClick={() => handleDeleteModule(module._id)}>Delete</button>
                                 <button type="button" className="btn bg-success" onClick={() => dispatch(setModule(module))}>Edit</button>
                                 <FaCheckCircle className="text-success" />
                                 <FaPlusCircle className="ms-2" />
