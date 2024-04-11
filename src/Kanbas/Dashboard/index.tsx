@@ -49,7 +49,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                 <div className="card-body">
                   <Link
                     className="card-title"
-                    to={`/Kanbas/Courses/${course._id}`}
+                    to={`/Kanbas/Courses/${course.id}`}
                     style={{
                       textDecoration: "none",
                       color: "navy",
@@ -67,13 +67,13 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
 
                     <button onClick={(event) => {
                       event.preventDefault();
-                      deleteCourse(course._id);
+                      deleteCourse(course.id);
                     }}>
                       Delete
                     </button>
                   </Link>
                   <p className="card-text">{course.name}</p>
-                  <Link to={`/Kanbas/Courses/${course._id}`} className="btn btn-primary">
+                  <Link to={`/Kanbas/Courses/${course.id}`} className="btn btn-primary">
                     {" "}
                     Go{" "}
                   </Link>
