@@ -8,6 +8,7 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import { links } from "../Database"
 import { FaGreaterThan } from "react-icons/fa";
+import Quizzes from "./Quizzes";
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Courses() {
@@ -40,6 +41,7 @@ function Courses() {
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
+            <Route path="Quizzes" element={<Quizzes />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
             <Route path="Grades" element={<h1>Grades</h1>} />
