@@ -9,6 +9,8 @@ import Assignments from "./Assignments";
 import { links } from "../Database"
 import { FaGreaterThan } from "react-icons/fa";
 import Quizzes from "./Quizzes";
+import QuizDetail from "./Quizzes/Detail";
+import QuizEdit from "./Quizzes/Edit/index";
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Courses() {
@@ -42,6 +44,8 @@ function Courses() {
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Quizzes" element={<Quizzes />} />
+            <Route path="Quizzes/:quizId/Details" element={<QuizDetail />} />
+            <Route path="Quizzes/:quizId/Edit/*" element={<QuizEdit />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
             <Route path="Grades" element={<h1>Grades</h1>} />

@@ -26,6 +26,11 @@ export const updateQuiz = async (quiz) => {
     return response.data;
 };
 
+export const findQuizById = async (quizId) => {
+    const response = await axios
+        .get(`${Quizzes_API}/${quizId}`);
+    return response.data;
+};
 
 export const findQuizzesForCourse = async (courseId) => {
     const response = await axios

@@ -18,6 +18,7 @@ function QuizList() {
             .then((quizzes) =>
                 dispatch(setQuizzes(quizzes))
             );
+        dispatch(setQuiz({ "title": "New Quiz", "description": "New Description" }));
     }, [courseId]);
 
     const handleDeleteQuiz = (quizId: string) => {
@@ -30,9 +31,11 @@ function QuizList() {
         dispatch(updateQuiz(updatedQuiz));
     };
     const handleAddQuiz = () => {
-        client.createQuiz(courseId, quiz).then((quiz) => {
-            dispatch(addQuiz(quiz));
-        });
+        client.createQuiz(courseId,
+            { "title": quiz.title, "description": quiz.description })
+            .then((quiz) => {
+                dispatch(addQuiz(quiz));
+            });
     };
 
 
@@ -74,7 +77,7 @@ function QuizList() {
                         className="list-group-item">
                         <div>
 
-                            <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Edit`}>
+                            <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`}>
                                 {quiz.title}
                             </Link>
 
@@ -87,7 +90,7 @@ function QuizList() {
                                         aria-expanded="false" data-target="#"> <FaEllipsisV className="ms-2" /> </a>
                                     <ul className="dropdown-menu" role="menu">
                                         <li className="dropdown-item">
-                                            <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Edit`}>
+                                            <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`}>
                                                 Edit
                                             </Link>
                                         </li>
