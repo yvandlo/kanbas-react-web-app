@@ -26,6 +26,12 @@ export const updateQuiz = async (quiz) => {
     return response.data;
 };
 
+export const publishQuiz = async (quizId) => {
+    const response = await axios.
+        put(`${Quizzes_API}/${quizId}/publish`);
+    return response.data;
+};
+
 export const findQuizById = async (quizId) => {
     const response = await axios
         .get(`${Quizzes_API}/${quizId}`);

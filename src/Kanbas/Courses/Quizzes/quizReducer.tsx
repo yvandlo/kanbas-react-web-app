@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     quizzes: [],
-    quiz: { title: "New Quiz 123", description: "New Description" },
+    quiz: { title: "New Quiz 123", description: "New Description", questions: [] },
 };
 
 
