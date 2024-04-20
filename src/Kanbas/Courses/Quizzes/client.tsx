@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true
 //const COURSES_API = "http://localhost:4000/api/courses";
 //const Quizzes_API = "http://localhost:4000/api/Quizzes";
 //const COURSES_API = "https://kanbas-node-server-app-566o.onrender.com/api/courses";
@@ -9,6 +10,7 @@ const Quizzes_API = `${API_BASE}/api/quizzes`;
 export const deleteQuiz = async (quizId) => {
     const response = await axios
         .delete(`${Quizzes_API}/${quizId}`);
+    await axios.delete(`${Quizzes_API}/${quizId}/questions`);
     return response.data;
 };
 
@@ -29,6 +31,24 @@ export const updateQuiz = async (quiz) => {
 export const publishQuiz = async (quizId) => {
     const response = await axios.
         put(`${Quizzes_API}/${quizId}/publish`);
+    return response.data;
+};
+
+export const updatePoints = async (quizId, points) => {
+    const response = await axios.
+        put(`${Quizzes_API}/${quizId}/points`, points);
+    return response.data;
+};
+
+export const updateNumQuestions = async (quizId, points) => {
+    const response = await axios.
+        put(`${Quizzes_API}/${quizId}/numquestions`, points);
+    return response.data;
+};
+
+export const totalPoints = async (quizId) => {
+    const response = await axios.
+        get(`${Quizzes_API}/${quizId}/questions/points`);
     return response.data;
 };
 

@@ -15,9 +15,10 @@ function QuizDetails() {
     const { courseId, quizId } = useParams();
     useEffect(() => {
         client.findQuizzesForCourse(courseId)
-            .then((quizzes) =>
-                dispatch(setQuizzes(quizzes))
-            );
+            .then((quizzes) => {
+                dispatch(setQuizzes(quizzes));
+
+            });
     }, [courseId]);
 
     const dispatch = useDispatch();

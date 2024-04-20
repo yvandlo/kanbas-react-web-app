@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../../store";
 import * as client from "./client";
+import * as quizClient from "./../client";
 import {
     startEditing, stopEditing, clearEditing,
     setQuestions, setQuestion,
@@ -25,23 +26,37 @@ function QuestionList() {
     const handleRefreshQuestion = async (questionId) => {
         const refreshQuestion = await client.findQuestionById(questionId);
         dispatch(updateQuestion(refreshQuestion));
-    }
+    };
 
     const handleDeleteQuestion = (questionId: string) => {
+        updateNumQuestions(-1);
         client.deleteQuestion(questionId).then((status) => {
             dispatch(deleteQuestion(questionId));
         });
+        updatePointCount();
     };
     const handleUpdateQuestion = async (updatedQuestion) => {
         const status = await client.updateQuestion(updatedQuestion);
         dispatch(updateQuestion(updatedQuestion));
+        updatePointCount();
     };
     const handleAddQuestion = () => {
+        updateNumQuestions(1);
         client.createQuestion(quizId,
             { "title": question.title, "question": question.question })
             .then((question) => {
-                dispatch(addQuestion(question));
+                dispatch(addQuestion(question))
             });
+    };
+
+    const updatePointCount = async () => {
+        const totalPoints = await quizClient.totalPoints(quizId);
+        console.log(totalPoints)
+        quizClient.updatePoints(quizId, totalPoints);
+    }
+
+    const updateNumQuestions = async (relative) => {
+        quizClient.updateNumQuestions(quizId, { points: questionList.length + relative });
     };
 
     const questionList = useSelector((state: KanbasState) =>
@@ -274,10 +289,14 @@ function QuestionList() {
 
     return (
         <>
-            <button type="button" className="btn bg-success">
+            <button type="button" className="btn bg-success" onClick={() => questionList.forEach((question) => { handleUpdateQuestion(question) })}>
                 Save
             </button>
-            <button type="button" className="btn bg-success">
+            <button type="button" className="btn bg-success" onClick={() => {
+                questionList.forEach((question) => { handleUpdateQuestion(question) });
+                quizClient.publishQuiz(quizId);
+                dispatch(clearEditing());
+            }}>
                 Save and Publish
             </button>
             <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quizId}/Details`}>

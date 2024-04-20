@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true
 //const COURSES_API = "http://localhost:4000/api/courses";
 //const Questions_API = "http://localhost:4000/api/Questions";
 //const COURSES_API = "https://kanbas-node-server-app-566o.onrender.com/api/courses";
