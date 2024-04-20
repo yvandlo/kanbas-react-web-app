@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-axios.defaults.withCredentials = true;
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
 import Dashboard from "./Dashboard";
@@ -12,6 +11,7 @@ import { Provider } from "react-redux";
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Kanbas() {
+   axios.defaults.withCredentials = true;
    const [courses, setCourses] = useState<any[]>([]);
    //const COURSES_API = "http://localhost:4000/api/courses";
    //const COURSES_API = "https://kanbas-node-server-app-566o.onrender.com/api/courses";
