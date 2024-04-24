@@ -113,15 +113,15 @@ function QuizList() {
                                         aria-expanded="false" data-target="#"> <FaEllipsisV className="ms-2" /> </a>
                                     <ul className="dropdown-menu" role="menu">
                                         <li className="dropdown-item">
-                                            <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`}>
+                                            <Link className="btn bg-successs w-100" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`}>
                                                 Edit
                                             </Link>
                                         </li>
                                         <li className="dropdown-item">
-                                            <button type="button" className="btn" onClick={() => handleDeleteQuiz(quiz._id)}>Delete</button>
+                                            <button type="button" className="btn w-100" onClick={() => handleDeleteQuiz(quiz._id)}>Delete</button>
                                         </li>
                                         <li className="dropdown-item">
-                                            <button type="button" className="btn" onClick={() => handlePublishQuiz(quiz._id)}>{quiz.published ? <>Unpublish</> : <>Publish</>}</button>
+                                            <button type="button" className="btn w-100" onClick={() => handlePublishQuiz(quiz._id)}>{quiz.published ? <>Unpublish</> : <>Publish</>}</button>
                                         </li>
                                     </ul>
                                 </div>

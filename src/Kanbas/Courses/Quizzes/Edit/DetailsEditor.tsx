@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./../index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaBan } from "react-icons/fa";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../../store";
 import * as client from "./../client";
@@ -13,6 +13,7 @@ import {
 
 function QuizDetailsEditor() {
     const { courseId, quizId } = useParams();
+    const navigate = useNavigate();
     useEffect(() => {
         client.findQuizzesForCourse(courseId)
             .then((quizzes) => {
@@ -29,14 +30,16 @@ function QuizDetailsEditor() {
 
 
     const saveAndPublish = async () => {
-        const updatedQuiz = { ...quiz, published: true };
-        setQuiz(updatedQuiz);
-        handleUpdateQuiz();
+        const status = await client.updateQuiz(quiz);
+        await client.publishQuiz(quizId);
+        //dispatch(updateQuiz(quiz));
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
 
     const handleUpdateQuiz = async () => {
         const status = await client.updateQuiz(quiz);
         dispatch(updateQuiz(quiz));
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`);
     };
 
 
@@ -79,7 +82,7 @@ function QuizDetailsEditor() {
                     <button type="button" className="btn bg-success" onClick={() => saveAndPublish()}>
                         Save and Publish
                     </button>
-                    <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Details`}>
+                    <Link className="btn bg-successs" to={`/Kanbas/Courses/${courseId}/Quizzes`}>
                         Cancel
                     </Link>
                     <hr />
